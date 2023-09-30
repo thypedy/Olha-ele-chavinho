@@ -10,20 +10,20 @@ import {
   IonRouterLink,
 } from '@ionic/react';
 
-import './Login.css';
+import './Cadastro.css';
 import Logo from '../../img/Dapta models bluebg 1.svg';
 
-const Login: React.FC = () => {
+const Cadastro: React.FC = () => {
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Login</IonTitle>
+          <IonTitle>Cadastro</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-      <div className='imagem'>
+        <div className='imagem'>
         <img
           src={Logo}
           alt="Your Image"
@@ -32,12 +32,19 @@ const Login: React.FC = () => {
         </div>
 
         <div className="container">
-          <IonText className='login-text'>Login</IonText>
+          <IonText className='cadastro-text'>Cadastro</IonText>
           {/* Email */}
           <IonInput
             type="email"
             placeholder="E-mail"
             className='input'
+            clearInput
+          ></IonInput>
+
+          {/*Name*/}
+          <IonInput
+            className='input'
+            placeholder='Nome'
             clearInput
           ></IonInput>
 
@@ -49,16 +56,24 @@ const Login: React.FC = () => {
             clearInput
           ></IonInput>
 
+          {/* Confirm password */}
+          <IonInput
+            type="password"
+            placeholder="Confirmar Senha"
+            className='input'
+            clearInput
+          ></IonInput>
+
 
           <IonText className='text'>
-            Não tem uma conta? <IonRouterLink routerLink="/cadastro">Cadastro</IonRouterLink>
+            Já fez o cadastro? <IonRouterLink routerLink="/login">Login</IonRouterLink>
           </IonText>
 
-          <IonButton><IonText>Login</IonText></IonButton>
+          <IonButton><IonText>cadastro</IonText></IonButton>
         </div>
       </IonContent>
     </IonPage>
   );
 };
 
-export default Login;
+export default Cadastro;

@@ -1,7 +1,11 @@
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
+
+import React, { useEffect } from 'react';
+import { initializeApp } from 'firebase/app';
+import firebaseConfig from './firebaseConfig';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -25,12 +29,19 @@ import AppRouter from './AppRouter';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <AppRouter />
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  useEffect(() => {
+    // Initialize Firebase with your configuration
+    initializeApp(firebaseConfig);
+  }, []);
+
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <AppRouter />
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;
