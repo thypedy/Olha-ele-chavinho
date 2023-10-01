@@ -48,3 +48,7 @@
     font-weight: bold;
     margin-bottom: 3px;
   }
+
+  .login-button{
+    width: 100%;
+  }

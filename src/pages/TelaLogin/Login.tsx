@@ -23,12 +23,12 @@ const Login: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-      <div className='imagem'>
-        <img
-          src={Logo}
-          alt="Your Image"
-          className='logo'
-        />
+        <div className='imagem'>
+          <img
+            src={Logo}
+            alt="Your Image"
+            className='logo'
+          />
         </div>
 
         <div className="container">
@@ -54,7 +54,9 @@ const Login: React.FC = () => {
             Não tem uma conta? <IonRouterLink routerLink="/cadastro">Cadastro</IonRouterLink>
           </IonText>
 
-          <IonButton><IonText>Login</IonText></IonButton>
+          <IonRouterLink routerLink='/principal' className='login-button'>
+            <IonButton><IonText>Login</IonText></IonButton>
+          </IonRouterLink>
         </div>
       </IonContent>
     </IonPage>
