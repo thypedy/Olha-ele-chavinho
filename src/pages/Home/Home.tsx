@@ -33,7 +33,7 @@ const Home: React.FC = () => {
         <div className="button-container">
           <IonRouterLink className="routerLink" routerLink="/login" routerDirection="forward">
             <IonButton className="login">
-              <IonText className="login-text">Login</IonText>
+              <IonText className="login-text1">Login</IonText>
               </IonButton>
           </IonRouterLink>
           <IonButton className="cadastro">Cadastro</IonButton>
