@@ -10,3 +10,7 @@ body {
   ion-toolbar {
     display: none !important;
   }
+
+  ion-item {
+    --highlight-color-focused: none;
+  }

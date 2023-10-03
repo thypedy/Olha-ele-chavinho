@@ -1,12 +1,10 @@
 import React from 'react';
 import {
-  IonHeader,
-  IonToolbar,
   IonButtons,
-  IonBackButton,
+  IonButton,
   IonInput,
   IonIcon,
-  IonButton,
+  IonItem,
 } from '@ionic/react';
 import { searchOutline, personCircleOutline, reorderThree } from 'ionicons/icons';
 
@@ -14,30 +12,32 @@ import './Header.css';
 
 const Header: React.FC = () => {
   return (
-    <IonHeader>
-      <IonToolbar className='container'>
-        {/* Back Button */}
-        <IonButtons slot="start">
-          <IonBackButton defaultHref="/" />
+    <>
+      <div className='header'>
+
+        <IonButtons slot='start'>
+        <IonButton fill="clear">
+          <IonIcon icon={personCircleOutline} className="icones" color="medium" />
+        </IonButton>
         </IonButtons>
 
-        {/* Search Input */}
-        <div className="searchContainer">
+        <IonItem>
+          <div className="searchContainer">
           <IonInput placeholder="Search"></IonInput>
-          <IonIcon icon={searchOutline} size="medium" color="primary" />
-        </div>
+      <IonIcon icon={searchOutline} size="medium" color="primary" className='searchIcon'/>
+          </div>
 
-        {/* Profile Button */}
-        <IonButton slot="end" fill="clear">
-          <IonIcon icon={personCircleOutline} size="large" color="medium" />
-        </IonButton>
+          <IonButtons slot="end">
 
         {/* Reorder Button */}
-        <IonButton slot="end" fill="clear">
-          <IonIcon icon={reorderThree} size="large" color="primary" />
+        <IonButton fill="clear">
+          <IonIcon icon={reorderThree} className="icones" color="primary" />
         </IonButton>
-      </IonToolbar>
-    </IonHeader>
+      </IonButtons>
+        </IonItem>
+
+      </div>
+      </>
   );
 };
 

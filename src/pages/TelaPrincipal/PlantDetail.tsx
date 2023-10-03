@@ -1,36 +1,51 @@
 import React from 'react';
-import { IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent } from '@ionic/react';
-import { useParams } from 'react-router-dom'; // Import useParams
+import {
+  IonContent,
+  IonTitle,
+  IonText,
+  IonRouterLink,
+} from '@ionic/react';
+import { useLocation } from 'react-router-dom';
 
-import PlantData from './PlantData'; // Import plantData
+import Header from '../../components/Header/Header';
+import './PlantDetail.css';
+
+interface LocationState {
+  plantData: {
+    id: number;
+    name: string;
+    location: string;
+    subtitle: string;
+    image: string;
+  };
+}
 
 const PlantDetail: React.FC = () => {
-  const { id } = useParams<{ id: string }>(); // Access the 'id' route parameter
+  const location = useLocation<LocationState>();
+  const { plantData } = location.state || {};
 
-  // Find the specific plant object with the matching 'id'
-  const plant = PlantData.find((item) => item.id === Number(id));
-
-  // Check if the plant object exists
-  if (!plant) {
-    return <div>Plant not found</div>; // Handle the case when the plant is not found
+  if (!plantData) {
+    return <div>Plant not found</div>;
   }
 
   return (
     <>
-      <IonContent>
-        {/* Plant details */}
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/principal" />
-          </IonButtons>
-          <IonTitle>{plant.name}</IonTitle>
-        </IonToolbar>
-        <img src={plant.image} alt={plant.name} />
-        <p>Location: {plant.location}</p>
-        <p>Subtitle: {plant.subtitle}</p>
+      <IonContent className='container'>
+        <Header />
+        <div className="voltar">
+          <IonRouterLink routerLink="/principal" routerDirection="back">
+            <IonText>Back</IonText>
+          </IonRouterLink>
+          <IonTitle>{plantData.name}</IonTitle>
+        </div>
+        <img src={plantData.image} alt={plantData.name} />
+        <p>Location: {plantData.location}</p>
+        <p>Subtitle: {plantData.subtitle}</p>
       </IonContent>
     </>
   );
 };
 
 export default PlantDetail;
+
+

@@ -1,23 +1,28 @@
-import React from 'react';
-import { IonContent, IonPage, IonText } from '@ionic/react';
-import Header from '../../components/Header/Header';
-import './Principal.css';
+import React from "react";
+import { IonContent, IonPage, IonText } from "@ionic/react";
+import Header from "../../components/Header/Header";
+import "./Principal.css";
 
-import PlantData from './PlantData'; // Import plantData
-import './PlantItem.css';
+import PlantData from "./PlantData"; // Import plantData
+import "./PlantItem.css";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Principal: React.FC = () => {
   return (
     <IonPage>
-      <IonContent className='container'>
+      <IonContent className="container">
         <Header />
-        <IonText className='texto'>5.840 plantas gratuitas</IonText>
+        <IonText className="texto">5.840 plantas gratuitas</IonText>
 
         {PlantData.map((plant) => (
-          <Link key={plant.id} to={`/plant/${plant.id}`}>
-            {/* Display plant information */}
+          <Link
+            key={plant.id}
+            to={{
+              pathname: `/plant/${plant.id}`,
+              state: { plantData: plant }, // Pass plant data as state
+            }}
+          >
             <div className="plant-item">
               <img src={plant.image} alt={plant.name} className="plant-image" />
               <div className="plant-details">
@@ -28,11 +33,9 @@ const Principal: React.FC = () => {
             </div>
           </Link>
         ))}
-
       </IonContent>
     </IonPage>
   );
 };
 
 export default Principal;
-
