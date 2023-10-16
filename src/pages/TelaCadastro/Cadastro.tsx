@@ -31,7 +31,7 @@ const Cadastro: React.FC = () => {
         />
         </div>
 
-        <div className="container">
+        <div className="container2">
           <IonText className='cadastro-text'>Cadastro</IonText>
           {/* Email */}
           <IonInput

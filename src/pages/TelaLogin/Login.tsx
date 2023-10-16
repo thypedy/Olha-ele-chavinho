@@ -31,7 +31,7 @@ const Login: React.FC = () => {
           />
         </div>
 
-        <div className="container">
+        <div className="container1">
           <IonText className='login-text'>Login</IonText>
           {/* Email */}
           <IonInput
